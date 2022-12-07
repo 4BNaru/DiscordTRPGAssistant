@@ -1,5 +1,5 @@
 from random import uniform
-    
+
 class case_group:
 
 	chance = []
