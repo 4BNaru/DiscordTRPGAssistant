@@ -1,16 +1,19 @@
 from random import uniform
+from collections import namedtuple
 
 class case_group:
-
+	case = []
 	chance = []
+	difficulty = []
 	decided = None
 	def __init__(self, *args):
-		self.cases = args
-		self.decide_chance()
+		for i in args:
+			self.case.append(namedtuple(i, -1))
+
 
 	def decide_chance(self):
 		weight = []
-		for i in self.cases:
+		for i in range(0, len(self.case)):
 			weight.append(uniform(0, 1))
 
 		sum = 0
@@ -32,7 +35,7 @@ class case_group:
 			i += 1
 			sum_chance += self.chance[i]
 
-		self.decided = self.cases[i]
+		self.decided = self.case[i]
 
 	def get_result(self) -> string:
 		if self.decided is None:
