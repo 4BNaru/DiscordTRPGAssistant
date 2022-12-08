@@ -10,7 +10,7 @@ class case_group:
 
 	def decide_chance(self):
 		weight = []
-		for i in range(0, len(self.cases)):
+		for i in self.cases:
 			weight.append(uniform(0, 1))
 
 		sum = 0
