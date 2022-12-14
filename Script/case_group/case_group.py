@@ -37,7 +37,7 @@ class case_group:
 
 		self.decided = self.case[i]
 
-	def get_result(self) -> string:
+	def get_result(self) -> str:
 		if self.decided is None:
 			self.decide_case()
 			return self.decided

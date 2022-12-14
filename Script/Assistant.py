@@ -4,6 +4,12 @@ from case_group import case_group
 import asyncio
 import time
 import threading
+from dotenv import load_dotenv
+import os 
+
+load_dotenv()
+
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -83,4 +89,4 @@ async def 새사건프리셋(ctx, *, args):
             break
 
 
-bot.run('MTA1MDA0MDMwNDcwMDQ4OTc0OA.GWEj08.QVUODXc9XeA2mMOB7dqCncBilGMiRVEXXEOQFo')
+bot.run(TOKEN)
