@@ -1,27 +1,24 @@
 from random import uniform
-from collections import namedtuple
 
-class case_group:
+class Case_group:
 	case = []
 	chance = []
 	difficulty = []
 	decided = None
-	def __init__(self, *args):
-		for i in args:
-			self.case.append(namedtuple(i, -1))
-
+	def __init__(self, args = []):
+		self.case = args
+		self.difficulty = [-1] * len(args)
+		self.decide_chance()
 
 	def decide_chance(self):
 		weight = []
 		for i in range(0, len(self.case)):
 			weight.append(uniform(0, 1))
 
-		sum = 0
-		for i in weight:
-			sum += i
+		sumary = sum(weight)
 
 		for i in weight:
-			self.chance.append(i / sum * 100)
+			self.chance.append(i / sumary * 100)
 
 	def decide_case(self):
 		dice = uniform(0, 100)
